@@ -5,8 +5,17 @@
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
+          <?php
 
-         
+            $base_url  = "http://localhost/cfn/";
+
+            $json = file_get_contents($base_url."dashboard.php");
+            $data=array();
+            $data = json_decode($json, true);
+            $total_feedback = $data["dashboard"][0]["total_feedback"];
+            $feedback_data = json_decode(file_get_contents($base_url."feedback_list.php"));
+                     
+          ?>
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
@@ -37,23 +46,35 @@
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
                 <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
+                <span class="badge badge-danger badge-counter"><?php echo $total_feedback; ?></span>
               </a>
               <!-- Dropdown - Messages -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">
-                  Message Center
+                  Users Feedback
                 </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div class="font-weight-bold">
-                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                    <div class="small text-gray-500">Emily Fowler · 58m</div>
-                  </div>
-                </a>
+
+                 <?php
+                     foreach($feedback_data->feedback_list as $getdata)
+                      {
+                        ?>
+                           <a class="dropdown-item d-flex align-items-center" href="#">  
+                         
+                           <div class="dropdown-list-image mr-5">
+                            <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                            <div class="status-indicator bg-success"></div>
+                          </div>
+                          <div class="font-weight-bold">
+                            <div class="text-truncate"><?php echo $getdata->feedback;?></div>
+                            <div class="small text-gray-500"><?php echo $getdata->user_name;?> <?php echo $getdata->created_at;?></div>
+                          </div>
+                          </a>
+                        <?php
+                      }
+
+                  ?>
+                
+                  
                
                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
               </div>

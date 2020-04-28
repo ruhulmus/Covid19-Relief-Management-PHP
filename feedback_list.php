@@ -55,6 +55,7 @@
 		                'upazila_id'=>$row['upazila_id'],
 		                'upazila_name'=>$row4['name'] ." > ". $row3["name"],
 			       	 	'upazila_name_bn'=>$row4['bn_name'] ." > ". $row3["bn_name"],
+			       	 	'created_at'=>$row['created_at'],
 		 		         
 		            ];
 
