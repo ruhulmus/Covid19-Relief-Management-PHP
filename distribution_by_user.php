@@ -67,7 +67,7 @@
 
  
 			    	$data['distributed_list'][] = [
-	                 
+	                'id'=>$row["id"],
 			        'no_of_family'=>$row["no_of_family"],
 			        'releife_items'=>$row["releife_items"],
 			        'survival_day'=>$row["survival_day"],
