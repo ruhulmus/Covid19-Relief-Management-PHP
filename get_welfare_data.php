@@ -17,6 +17,7 @@
    				$sql_welfare = "SELECT welfare_data.id as id,bn_name,district_id, name,upazila_id,welfare_org_id,latitude,longitude,no_of_population,no_of_families,avg_no_of_each_family_member,avg_family_wise_monthly_earning,is_poor,no_of_poor_people FROM upazilas,welfare_data WHERE welfare_data.upazila_id = upazilas.id ORDER BY welfare_data.upazila_id ASC";
 				$result_welfare = mysqli_query($conn,$sql_welfare);
  
+ 				 
 				if (mysqli_num_rows($result_welfare) > 0) {
 					while($row_welfare = $result_welfare->fetch_assoc()) {
 
@@ -28,7 +29,7 @@
 					$result4 = mysqli_query($conn,$sql4);
 					$row4=mysqli_fetch_array($result4);
 						
- 						
+ 						$i=0;
 						$sum_survival_no_of_family_till_today = 0;
 						if (mysqli_num_rows($result8) > 0) {
 							 while($row8 = $result8->fetch_assoc()) {
@@ -52,7 +53,7 @@
 							 		}
 								 	if ($survival_date >= $date){
 				
-										$data1['distributed_survive_till'][] = [
+										$data1['distributed_survive_till'][$i][] = [
 											'upazila_id'=>$row8["upazila_id"],
 						                	'distribute_no_of_family'=>$row8["no_of_family"],
 									        'distribute_survival_day'=>$row8["survival_day"],
@@ -62,7 +63,7 @@
 				               		}
 							}
 						}
-
+						$i++;
 						 
 						$data['welfare_list'][] = [
 							'id'=>$row_welfare["id"],
@@ -81,7 +82,7 @@
 	        				'total_survival_family_till_today'=> $sum_survival_no_of_family_till_today,
 							'no_of_poor_family'=>$row_welfare["no_of_poor_people"],
 							'upazila_wise_map_status'=>$map_status_zone_wise,	        				
-							//'distributed_survive_till'=>$data1['distributed_survive_till'],
+							'distributed_survive_till'=>$data1['distributed_survive_till'],
 
 		               		];
 
@@ -97,7 +98,7 @@
  					 	 
 						*/
  					 	
-
+	               			 
 					 	
 	               	}
 				}

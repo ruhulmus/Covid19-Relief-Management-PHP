@@ -120,11 +120,15 @@
 	$total_govt_organization = $row5[0];
 
 
-	$sql7 = "SELECT COUNT('id') FROM relief_request ORDER BY type ASC";
+	$sql7 = "SELECT COUNT('id') FROM relief_request";
 	$result7 = mysqli_query($conn, $sql7);
  	$row7 = mysqli_fetch_array($result7);
 	$total_relief_request = $row7[0];
 
+	$sql9 = "SELECT COUNT('id') FROM user_feedback";
+	$result9 = mysqli_query($conn, $sql9);
+ 	$row9 = mysqli_fetch_array($result9);
+	$total_feedback = $row9[0];
 
 	$total_poor_family = $total_no_of_poor_family;
 	$total_family_food_have = $total_survival_no_of_family_till_today;
@@ -138,6 +142,7 @@
 	        'total_distributed_done'=>$total_distributed_done,
 	        'total_distributed_cancel'=>$total_distributed_cancel, 
 	        'total_relief_request'=>$total_relief_request,
+	        'total_feedback'=>$total_feedback,
 	        'total_poor_family'=>$total_poor_family,
 	        'total_family_food_have'=>$total_family_food_have,
 	        'total_family_food_needed'=>$total_family_food_needed,

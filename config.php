@@ -1,7 +1,7 @@
 <?php
-$servername = "127.0.0.1";
+$servername = "localhost";
 $username = "root";
-$password = "123456";
+$password = "";
 $dbname = "db_cfn";
 
 // Create connection
