@@ -97,6 +97,7 @@
 							'id'=>$row_welfare["id"],
 							'welfare_org_id'=>$row_welfare["welfare_org_id"],
 		                	'upazila_id'=>$row_welfare["upazila_id"],
+ 		                	'upazila'=>$row_welfare["name"],
  		                	'upazila_name'=>$row4['name'] ." > ". $row_welfare["name"],
 							'name_bn'=>$row4['bn_name'] ." > ". $row_welfare["bn_name"],
  		                	'no_of_population'=>$row_welfare["no_of_population"],
