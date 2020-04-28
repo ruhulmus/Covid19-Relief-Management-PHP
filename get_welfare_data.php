@@ -13,11 +13,20 @@
 
 
 
+									function getMin($array)  
+									{ 
+									   $n = count($array);  
+									   $min = $array[0]; 
+									   for ($i = 1; $i < $n; $i++)  
+									       if ($min > $array[$i]) 
+									           $min = $array[$i]; 
+									    return $min;        
+									} 
+									
 
    				$sql_welfare = "SELECT welfare_data.id as id,bn_name,district_id, name,upazila_id,welfare_org_id,latitude,longitude,no_of_population,no_of_families,avg_no_of_each_family_member,avg_family_wise_monthly_earning,is_poor,no_of_poor_people FROM upazilas,welfare_data WHERE welfare_data.upazila_id = upazilas.id ORDER BY welfare_data.upazila_id ASC";
 				$result_welfare = mysqli_query($conn,$sql_welfare);
  
- 				 
 				if (mysqli_num_rows($result_welfare) > 0) {
 					while($row_welfare = $result_welfare->fetch_assoc()) {
 
@@ -29,42 +38,61 @@
 					$result4 = mysqli_query($conn,$sql4);
 					$row4=mysqli_fetch_array($result4);
 						
- 						$i=0;
-						$sum_survival_no_of_family_till_today = 0;
+ 						$sum_survival_no_of_family_till_today = 0;
+ 						$map_status_zone_wise = 1;
+						$data1 = array();
+						$i = 0;
 						if (mysqli_num_rows($result8) > 0) {
 							 while($row8 = $result8->fetch_assoc()) {
-			
-
-
+											 
  								 	$distribution_date = new DateTime($row8["date_of_distribution"]);
 								 	$distribution_date->modify('+'.$row8["survival_day"].' day');
 								 	$survival_date= $distribution_date->format('Y-m-d H:i:s');
 
-							 		$sum_survival_no_of_family_till_today += $row8["no_of_family"];
 
-							 		if ($row8["survival_day"] > 0 && $row8["survival_day"] <= 5){
-							 			$map_status_zone_wise = 2;
-							 		}
-							 		else if ($row8["survival_day"] > 5 ){
-							 			$map_status_zone_wise = 3;
-							 		}
-							 		else{
-							 			$map_status_zone_wise = 1;
-							 		}
+							 		
 								 	if ($survival_date >= $date){
-				
-										$data1['distributed_survive_till'][$i][] = [
-											'upazila_id'=>$row8["upazila_id"],
-						                	'distribute_no_of_family'=>$row8["no_of_family"],
-									        'distribute_survival_day'=>$row8["survival_day"],
-									        'distribute_date_of_distribution'=>$row8["date_of_distribution"],
-									        'survival_date_till'=>$survival_date,
-					               		];
+
+								 		$sum_survival_no_of_family_till_today += $row8["no_of_family"];
+
+
+								 		$earlier = new DateTime($date);
+										$later = new DateTime($survival_date);
+										$survival_more_day = $later->diff($earlier)->format("%a");
+
+										$data1[$i]['upazila_id']=$row8["upazila_id"]; 
+										$data1[$i]['distribute_no_of_family']=$row8["no_of_family"];
+										$data1[$i]['distribute_survival_day']=$row8["survival_day"]; 
+										$data1[$i]['distribute_date_of_distribution']=$row8["date_of_distribution"];
+										$data1[$i]['survival_date_till']=$survival_date;
+										$data1[$i]['survival_more_day']=$survival_more_day;
+				               			$i++;
 				               		}
-							}
+				               		$k=0;
+									foreach($data1 as $data2){
+									   $data3[$k]= $data2['survival_more_day'];
+									   $k++;
+									}
+				               	
+					            		$min_value = getMin($data3);
+
+										if ($min_value >= 1 && $min_value <= 5){
+							 				$map_status_zone_wise = 2;
+								 		}
+								 		else if ($min_value > 5 ){
+								 			$map_status_zone_wise = 3;
+								 		}
+								 		else{
+								 			$map_status_zone_wise = 1;
+								 		}
+
+ 							}
 						}
-						$i++;
-						 
+
+							 		//print_r($data1['survival_more_day']);
+								 	// echo(min(array($data1['survival_more_day'])));
+
+
 						$data['welfare_list'][] = [
 							'id'=>$row_welfare["id"],
 							'welfare_org_id'=>$row_welfare["welfare_org_id"],
@@ -82,7 +110,7 @@
 	        				'total_survival_family_till_today'=> $sum_survival_no_of_family_till_today,
 							'no_of_poor_family'=>$row_welfare["no_of_poor_people"],
 							'upazila_wise_map_status'=>$map_status_zone_wise,	        				
-							'distributed_survive_till'=>$data1['distributed_survive_till'],
+							'distributed_survive_till'=>$data1,
 
 		               		];
 
@@ -98,7 +126,7 @@
  					 	 
 						*/
  					 	
-	               			 
+
 					 	
 	               	}
 				}
@@ -108,8 +136,7 @@
 
 
 
-
-
+				/*
     $sql = "SELECT welfare_data.id as id, name,upazila_id,welfare_org_id,latitude,longitude,no_of_population,no_of_families,avg_no_of_each_family_member,avg_family_wise_monthly_earning,is_poor,no_of_poor_people FROM upazilas,welfare_data WHERE welfare_data.upazila_id = upazilas.id ORDER BY welfare_data.id ASC";
 	$result = mysqli_query($conn, $sql);
 
@@ -134,7 +161,9 @@
 		          ];
 		        
  			    }
-			} else {
+			} 
+			*/
+			else {
 			 $data['status'] = "401";
 	         $data['msg']="failed";
 			}

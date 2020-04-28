@@ -2,7 +2,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; Call for Nation | Relief Manager 2020</span>
           </div>
         </div>
       </footer>
@@ -53,8 +53,83 @@
 
   <!-- Page level custom scripts -->
   <script src="assets/js/demo/chart-area-demo.js"></script>
-  <script src="assets/js/demo/chart-pie-demo.js"></script>
+  <!--script src="assets/js/demo/chart-pie-demo.js"></script-->
+<script type="application/javascript">
+          // Set new default font family and font color to mimic Bootstrap's default styling
+Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#858796';
 
+// Pie Chart Example
+var ctx = document.getElementById("myPieChart");
+var myPieChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ["Done", "Pending", "Cancel"],
+    datasets: [{
+      data: [<?php echo $total_distributed_done;?>, <?php echo $total_distributed_pending;?>, <?php echo $total_distributed_cancel;?>],
+      backgroundColor: ['#1cc88a', '#f6c23e', '#e74a3b'],
+     hoverBackgroundColor: ['#1cc88a', '#f6c23e', '#e74a3b'],
+      hoverBorderColor: "rgba(234, 236, 244, 1)",
+    }],
+  },
+  options: {
+    maintainAspectRatio: false,
+    tooltips: {
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: true,
+      caretPadding: 10,
+    },
+    legend: {
+      display: true
+    },
+    cutoutPercentage: 80,
+  },
+});
+</script>
+
+
+<script type="application/javascript">
+          // Set new default font family and font color to mimic Bootstrap's default styling
+Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#858796';
+
+// Pie Chart Example
+var ctx = document.getElementById("myPieChart2");
+var myPieChart2 = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ["Have Food", "Food needed","Total Poor Family"],
+    datasets: [{
+      data: [<?php echo $total_family_food_have;?>,<?php echo $total_family_food_needed;?>,<?php echo $total_poor_family;?> ],
+      backgroundColor: ['#36b9cc', '#e74a3b', '#4e73df'],
+     hoverBackgroundColor: ['#36b9cc', '#e74a3b', '#4e73df'],
+      hoverBorderColor: "rgba(234, 236, 244, 1)",
+    }],
+  },
+  options: {
+    maintainAspectRatio: false,
+    tooltips: {
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: true,
+      caretPadding: 10,
+    },
+    legend: {
+      display: true
+    },
+    cutoutPercentage: 80,
+  },
+});
+</script>
 </body>
 
 </html>

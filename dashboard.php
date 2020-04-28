@@ -31,7 +31,15 @@
 								 	$distribution_date->modify('+'.$row3["survival_day"].' day');
 								 	$survival_date= $distribution_date->format('Y-m-d H:i:s');
 
-								 	 
+
+								 	if ($survival_date >= $date){
+
+								 		$sum_upazila_survival_no_of_family_till_today += $row3["no_of_family"];
+
+
+								 		 
+				               		}
+								 	 /*
 							 		$sum_upazila_survival_no_of_family_till_today += $row3["no_of_family"];
 					 		
 					 				if ($row3["survival_day"] > 0 && $row3["survival_day"] <= 5){
@@ -54,6 +62,7 @@
 										        'survival_date_till '=>$survival_date,
 						               		];
 					               		}
+					               		*/
 							}
 						}
  						$total_survival_no_of_family_till_today += $sum_upazila_survival_no_of_family_till_today;
@@ -70,8 +79,7 @@
 	        				'avg_family_wise_monthly_earning'=>$row_welfare["avg_family_wise_monthly_earning"],
 	        				'upazila_wise_survival_family_till_today'=> $sum_upazila_survival_no_of_family_till_today,
 							'upazila_wise_no_of_poor_family'=>$row_welfare["no_of_poor_people"],
-							'upazila_wise_map_status'=>$map_status_zone_wise,	        				
-							//'distributed_survive_till'=>$data1['distributed_survive_till'],
+ 							//'distributed_survive_till'=>$data1['distributed_survive_till'],
 
 		               	];
  

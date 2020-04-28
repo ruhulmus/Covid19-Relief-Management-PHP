@@ -76,6 +76,7 @@
 
 
 			    	$data['distributed_list'][] = [
+			    	'id'=>$row["id"],
 	                'user_id'=>$row["user_id"],
 			         'user_name'=>$row3['name'],
                 	'user_type'=>$user_type,
