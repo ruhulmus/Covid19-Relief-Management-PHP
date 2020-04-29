@@ -5,14 +5,22 @@
    //include("get_data_by_field.php");
     
   // $row=null; 
-   if($_SERVER["REQUEST_METHOD"] == "GET") {
+   if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form 
     
-   	  
+   	  	$type = $_POST['type'];
+   	  	if ($type == 1){
+		 	$sql = "SELECT * FROM user_feedback ORDER BY id DESC LIMIT 2";
+			$result = mysqli_query($conn, $sql);
+   	  	}
+	 	else{
+	 		$sql = "SELECT * FROM user_feedback ORDER BY id DESC";
+			$result = mysqli_query($conn, $sql);
 	 
-	    $sql = "SELECT * FROM user_feedback";
-		$result = mysqli_query($conn, $sql);
-	 
+	 	}
+	    
+
+
 
 			if (mysqli_num_rows($result) > 0) {
 			    // output data of each row
@@ -45,11 +53,14 @@
 						$user_type="Govt Organization";
 				    }
  
+ 						$feedback_substring = substr($row["feedback"],0,35);
+
 			            $data['feedback_list'][] = [
 		                'id'=>$row["id"],
 		                'user_id'=>$row['user_id'],
 		                'user_name'=>$row2['name'],
 		                'feedback'=>$row["feedback"],
+		                'feedback_substring'=>$feedback_substring."...",
 		                'status'=>$row['status'],
 		                'user_type'=>$user_type,
 		                'upazila_id'=>$row['upazila_id'],
