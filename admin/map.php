@@ -16,8 +16,7 @@ include_once('includes/header.php');
 
         <?php include_once('includes/topbar.php'); ?>
 
-        <?php include_once('includes/map_data.php'); ?>
-
+ 
         <!-- Begin Page Content -->
         <div class="container-fluid">
             <!-- DataTales Example -->
@@ -26,7 +25,7 @@ include_once('includes/header.php');
                     <h6 class="m-0 font-weight-bold text-primary">Map View</h6>
                 </div>
                 <div class="card-body">
-                     <div class="mt-4 text-center small marker-section">
+                     <div class="mt-4 text-center small marker-section detials-marker-section">
                       <span class="mr-2">
                         <img class="marker-img logo-icon" src="assets/img/marker-distribute.png" alt="">
                          <span class=" text-primary"> Distributed Area</span>
@@ -44,7 +43,7 @@ include_once('includes/header.php');
                           <span class=" text-danger">Red Area : Urgently Relief Needed </span>
                         </span>
                     </div>
-                    <div class="chart-area" id="map2">
+                    <div class="chart-area" id="map">
 
                     </div>
                 </div>

@@ -62,6 +62,9 @@ if ($logged == false) {
 				font-weight: 600;
 				font-size:15px;
 			}
+			.marker-section{
+				margin-bottom: 20px;
+			}
 		</style>
 	</head>
 
