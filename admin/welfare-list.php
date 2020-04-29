@@ -32,8 +32,7 @@ include_once('includes/header.php');
                       <th>Average family member</th>
                       <th>Average monthly earning</th>
                       <th>Number of poor family</th>
-                      <th>Total survival family</th>
-                    </tr>
+                     </tr>
                   </thead>
                 </table>
               </div>

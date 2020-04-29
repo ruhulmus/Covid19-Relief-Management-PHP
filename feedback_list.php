@@ -44,7 +44,7 @@
 
 
 					if ($row2['type'] ==1 ){
-				    	$user_type="Indivitual";
+				    	$user_type="individual";
 				    }
 				    else if ($row2['type'] ==2 ) {
 						$user_type="Private Welfare Organization";

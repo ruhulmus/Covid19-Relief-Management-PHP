@@ -100,7 +100,7 @@ $last_part = end($components);
 
         
       <!-- Divider -->
-      <hr class="sidebar-divider">
+      <hr class="sidebar-divider my-0">
 
         <li class="nav-item <?php if ($last_part=="user_list.php") {echo "active"; } else  {echo "";}?>">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">

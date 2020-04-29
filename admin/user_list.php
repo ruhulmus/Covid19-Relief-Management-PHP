@@ -39,17 +39,28 @@ include_once('includes/header.php');
                             </thead>
                             <?php
                                 include("../config.php");
-                                $sql = "SELECT * FROM users";
+                                $sql = "SELECT * FROM users ORDER BY id DESC";
                                 $result = mysqli_query($conn, $sql);
 
                                 while($row = $result->fetch_assoc()){
+
+                                    if ($row['type'] ==1 ){
+                                            $user_type="individual";
+                                        }
+                                        else if ($row['type'] ==2 ) {
+                                            $user_type="Private Welfare Organization";
+                                        }
+                                        else if ($row['type'] ==3 ) {
+                                            $user_type="Govt Organization";
+                                        }
+
                                     ?>
                                     <tr>
                                         <td><?php echo $row['name']; ?></td>
                                         <td><?php echo $row['username']; ?></td>
                                         <td><?php echo $row['phone']; ?></td>
                                         <td><?php echo $row['email']; ?></td>
-                                        <td><?php echo $row['type']; ?></td>
+                                        <td><?php echo $user_type; ?></td>
                                         <td><?php echo $row['address']; ?></td>
                                         <td>
                                             <?php

@@ -20,7 +20,7 @@
 			    while($row = $result->fetch_assoc()) {
 			    	 
 					if ($row['type'] ==1 ){
-				    	$user_type="Indivitual";
+				    	$user_type="individual";
 				    }
 				    else if ($row['type'] ==2 ) {
 						$user_type="Private Welfare Organization";
