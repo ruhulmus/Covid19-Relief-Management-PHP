@@ -12,7 +12,7 @@ $last_part = end($components);
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Dashboard CFN</div>
+        <div class="sidebar-brand-text mx-3">Relief Manager</div>
       </a>
 
       <!-- Divider -->

@@ -7,8 +7,6 @@ function customPageHeader(){?>
 
 include_once('includes/header.php');
 ?>
-
-
 <!-- Main Content -->
       <div id="content">
 
