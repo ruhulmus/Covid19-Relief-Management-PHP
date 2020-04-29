@@ -1,23 +1,34 @@
 <!-- Topbar -->
+        <?php
+            include('global_config.php');
+ 
+            $json = file_get_contents(get_base_url()."dashboard.php");
+            $data=array();
+            $data = json_decode($json, true);
+            $total_feedback = $data["dashboard"][0]["total_feedback"];
+            
+             $total_family_food_needed = $data['dashboard'][0]['total_family_food_needed'];
+            $total_family_food_have = $data['dashboard'][0]['total_family_food_have'];
+            $total_poor_family = $data['dashboard'][0]['total_poor_family'];
+
+                  
+              $feedback_data = get_post_data(get_base_url().'feedback_list.php',array('type' => '1')); 
+               
+          
+          ?>
 
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
+            <?php
+              
+
+            ?>
+            <p class="stick_notification" style="font-size:18px;"><span><?php echo $total_family_food_needed;?></span> out of <span><?php echo $total_poor_family; ?></span> families don't have today's food !!</p>
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
-          <?php
-
-            $base_url  = "http://localhost/cfn/";
-
-            $json = file_get_contents($base_url."dashboard.php");
-            $data=array();
-            $data = json_decode($json, true);
-            $total_feedback = $data["dashboard"][0]["total_feedback"];
-            $feedback_data = json_decode(file_get_contents($base_url."feedback_list.php"));
-                     
-          ?>
-
+          
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
@@ -61,12 +72,12 @@
                         ?>
                            <a class="dropdown-item d-flex align-items-center" href="#">  
                          
-                           <div class="dropdown-list-image mr-5">
-                            <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                           <div class="dropdown-list-image mr-3">
+                            <img class="rounded-circle" src="assets/img/user-avatar_new.jpg" alt="">
                             <div class="status-indicator bg-success"></div>
                           </div>
                           <div class="font-weight-bold">
-                            <div class="text-truncate"><?php echo $getdata->feedback;?></div>
+                            <div class="text-truncate"><?php echo $getdata->feedback_substring;?></div>
                             <div class="small text-gray-500"><?php echo $getdata->user_name;?> <?php echo $getdata->created_at;?></div>
                           </div>
                           </a>
@@ -76,7 +87,7 @@
                   ?>
                 
                
-                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                <a class="dropdown-item text-center small text-gray-500" href="<?php echo get_base_url()."admin/feedback_list.php" ?>">Read More Feedback</a>
               </div>
             </li>
 
@@ -98,14 +109,7 @@
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
-                </a>
+                 
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

@@ -6,7 +6,7 @@ function customPageHeader(){?>
 <?php }
 
 include_once('includes/header.php');
-?>
+ ?>
 <!-- Main Content -->
       <div id="content">
 
@@ -23,12 +23,8 @@ include_once('includes/header.php');
           <!-- Content Row -->
           <div class="row">
             <?php
-
-              $base_url  = "http://localhost/cfn/";
-
-
               /* Start Dashboard API */
-              $json = file_get_contents($base_url."dashboard.php");
+              $json = file_get_contents(get_base_url()."dashboard.php");
               $data=array();
               $data = json_decode($json, true);
               $data["dashboard"][0]["total_user"];
@@ -52,7 +48,7 @@ include_once('includes/header.php');
 
 
                  
-                $welfare_data = json_decode(file_get_contents($base_url."get_welfare_data.php"));
+                $welfare_data = json_decode(file_get_contents(get_base_url()."get_welfare_data.php"));
                 foreach($welfare_data->welfare_list as $getdata)
                 {
                        '"'.$getdata->upazila.'",';
@@ -247,13 +243,13 @@ include_once('includes/header.php');
                   </div>
                   <div class="mt-4 text-left small">
                     <span class="mr-5">
-                      <i class="fas fa-circle text-info"></i> No. of Family Have Food : <?php echo $total_family_food_have;?>
+                      <i class="fas fa-circle text-info"></i> No. of Family Have Food : <span class="txt-bold text-success"><?php echo $total_family_food_have;?></span>
                     </span>
                     <span class="mr-5">
-                      <i class="fas fa-circle text-danger"></i> No of Family Food Needed : <?php echo $total_family_food_needed;?> 
+                      <i class="fas fa-circle text-danger"></i> No of Family Food Needed : <span class="txt-bold text-danger"><?php echo $total_family_food_needed;?> </span>
                     </span>
                      <span class="mr-5">
-                      <i class="fas fa-circle text-primary"></i> Total No. of Poor Family :  <?php echo $total_poor_family;?> 
+                      <i class="fas fa-circle text-primary"></i> Total No. of Poor Family :  <span class="txt-bold text-primary"><?php echo $total_poor_family;?> </span>
                     </span>
                      
                   </div>
@@ -279,13 +275,13 @@ include_once('includes/header.php');
                   </div>
                   <div class="mt-4 text-center small">
                     <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Done : <span class"text_bold"><?php echo $total_distributed_done; ?></span>
+                      <i class="fas fa-circle text-success"></i> Done : <span class="txt-bold text-success"><?php echo $total_distributed_done; ?></span>
                     </span>
                     <span class="mr-2">
-                      <i class="fas fa-circle text-warning"></i> Pending : <?php echo $total_distributed_pending; ?>
+                      <i class="fas fa-circle text-warning"></i> Pending : <span class="txt-bold text-warning"><?php echo $total_distributed_pending; ?></span>
                     </span>
                     <span class="mr-2">
-                      <i class="fas fa-circle text-danger"></i> Cancel : <?php echo $total_distributed_cancel; ?>
+                      <i class="fas fa-circle text-danger"></i> Cancel : <span class="txt-bold text-danger"><?php echo $total_distributed_cancel; ?></span>
                     </span>
                   </div>
                 </div>

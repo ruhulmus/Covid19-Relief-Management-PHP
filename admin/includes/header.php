@@ -29,7 +29,38 @@ if ($logged == false) {
 		<?php if (function_exists('customPageHeader')){
 		  	customPageHeader();
 		}?>
+		<style>
 
+			.sidebar-brand .sidebar-brand-icon .logo-icon{
+			  width: 60px !important;
+			}
+
+			.bg-gradient-primary{
+				 background-color: #8060CA;
+  				background: linear-gradient(90deg, rgba(103,62,199,1) 0%, rgba(103,60,205,1) 46%, rgba(103,62,199,1) 100%);
+
+
+
+			}
+			.stick_notification{
+				font size:20px;
+				text-align: center;
+				width: 100%;
+				color:#36b9cc;
+				margin-top: 10px;
+				font-size:16px;
+			}
+			.stick_notification span {
+				color:red;
+				font-weight: 600;
+				font-size:20px;
+
+			}
+			.txt-bold{
+				font-weight: 600;
+				font-size:15px;
+			}
+		</style>
 	</head>
 
 	<body id="page-top">

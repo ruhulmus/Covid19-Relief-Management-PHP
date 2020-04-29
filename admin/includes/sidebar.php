@@ -8,9 +8,9 @@ $last_part = end($components);
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.php">
+        <div class="sidebar-brand-icon">
+          <img class="rounded-circle logo-icon" src="assets/img/logo-icon.png" alt="">
         </div>
         <div class="sidebar-brand-text mx-3">Relief Manager</div>
       </a>
@@ -32,12 +32,12 @@ $last_part = end($components);
       <li class="nav-item <?php if ($last_part=="add_welfare.php" || $last_part=="welfare-list.php") {echo "active"; } else  {echo "";}?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Welfare Org Data</span>
+          <span>Analytical Welfare Data</span>
         </a>
         <div id="collapseOne" class="collapse <?php if ($last_part=="add_welfare.php" || $last_part=="welfare-list.php") {echo "show"; } else  {echo "";}?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
              
-            <a class="collapse-item <?php if ($last_part=="add_welfare.php") {echo "active"; } else  {echo "";}?>" href="add_welfare.php">Add</a>
+            <!--a class="collapse-item <?php if ($last_part=="add_welfare.php") {echo "active"; } else  {echo "";}?>" href="add_welfare.php">Add</a-->
             <a class="collapse-item <?php if ($last_part=="welfare-list.php") {echo "active"; } else  {echo "";}?>" href="welfare-list.php">List</a>
           </div>
         </div>
