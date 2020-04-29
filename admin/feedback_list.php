@@ -26,10 +26,14 @@ include_once('includes/header.php');
                 <table class="table table-bordered" id="feedbacklist" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>User Name</th>
-                      <th>User Type</th>
+                      <th>Name</th>
+                      <th>Type</th>
+                       <th>Phone</th>
+                      <th>Email</th>
+                      <th>address</th>
                       <th>Feedback</th>
                       <th>Upazilla Name</th>
+
                       <th>Status</th>
                     </tr>
                   </thead>

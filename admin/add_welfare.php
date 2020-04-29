@@ -29,9 +29,6 @@ include_once('includes/header.php');
         <?php include_once('includes/topbar.php'); ?>
 
 
-
-
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
           <!-- DataTales Example -->
@@ -66,7 +63,7 @@ include_once('includes/header.php');
                             $e = $_POST['15']; 
                             $f = $_POST['16']; 
                             $g = $_POST['17']; 
-                            $h = $_POST['18']; 
+                            $h = 0; 
 
                             $sql = "INSERT INTO welfare_data (welfare_org_id, upazila_id, no_of_population, no_of_families, avg_no_of_each_family_member, avg_family_wise_monthly_earning, no_of_poor_people, is_poor) VALUES ('".$a."','".$b."','".$c."','".$d."','".$e."','".$f."','".$g."','".$h."')";
 
@@ -137,12 +134,7 @@ include_once('includes/header.php');
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" class="form-control form-control-user" name="17" placeholder="Number of poor people" required>
                   </div>
-                  <div class="col-sm-6">
-                    <select class="form-control form-control-user" name="18" required>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                    </select>
-                  </div>
+                  
                 </div>
                 <input type="submit" class="btn btn-primary btn-user btn-block" name="SubmitButton" value="Register Welfare">
                    

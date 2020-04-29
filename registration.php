@@ -34,7 +34,7 @@
 						 
 					}
 					else{
-						$sql = "INSERT INTO users (name, username,email,phone,password,type,address,is_active) VALUES ('".$name."','".$username."','".$email."','".$phone."','".$password."','".$type."','".$address."',1)";	
+						$sql = "INSERT INTO users (name, username,email,phone,password,type,address,is_active,role) VALUES ('".$name."','".$username."','".$email."','".$phone."','".$password."','".$type."','".$address."',1,0)";	
 					 	if (mysqli_query($conn, $sql)) {
 					 		    $data['status'] = "201";
 						    	$data['msg']="success";

@@ -89,15 +89,18 @@ $(document).ready(function() {
     } );
 
     $('#feedbacklist').DataTable( {
-         "ajax":{
-            "type" : "GET",
+           "ajax":{
+            "type" : "POST",
+            "data" : {
+                "type" : "",
+            },
             "url" : "../feedback_list.php",
             "dataSrc": function ( json ) {
                 return json['feedback_list'];
             }
           },
           "columnDefs": [
-            { targets: 4,
+            { targets: 7,
               render: function(data) {
                 if(data == 1){
                     var status = 'Pending';
@@ -111,6 +114,9 @@ $(document).ready(function() {
           "columns": [
                 { "data": "user_name" },
                 { "data": "user_type" },
+                { "data": "user_phone" },
+                { "data": "user_email" },
+                { "data": "user_address" },
                 { "data": "feedback" },
                 { "data": "upazila_name" },
                 { "data": "status" }
