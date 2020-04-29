@@ -11000,3 +11000,6 @@ body.sidebar-toggled footer.sticky-footer {
 .text_bold{
   font-weight: 600 !important;
 }
+#map{
+  height: 40rem;
+}

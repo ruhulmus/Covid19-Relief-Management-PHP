@@ -26,6 +26,8 @@ if ($logged == false) {
 		  <!-- Custom styles for this page -->
   		<link href="assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5MDyc0XnizNkfNCXr_3oQAyse4AJcfas&callback=initMap" type="text/javascript"></script>
+
 		<?php if (function_exists('customPageHeader')){
 		  	customPageHeader();
 		}?>
