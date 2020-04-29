@@ -25,6 +25,15 @@ $last_part = end($components);
           <span>Dashboard</span></a>
       </li>
 
+       <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item <?php if ($last_part=="map.php") {echo "active"; } else  {echo "";}?>">
+        <a class="nav-link" href="map.php" >
+          <i class="fas famap-marked-alt fa-tachometer-alt"></i>
+          <span>Map View</span></a>
+      </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
@@ -88,6 +97,8 @@ $last_part = end($components);
           </div>
         </div>
       </li>
+
+        
       <!-- Divider -->
       <hr class="sidebar-divider">
 
