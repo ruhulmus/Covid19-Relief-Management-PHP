@@ -13,9 +13,8 @@ $(document).ready(function() {
                 { "data": "no_of_families" },
                 { "data": "avg_no_of_each_family_member" },
                 { "data": "avg_family_wise_monthly_earning" },
-                { "data": "no_of_poor_family" },
-                { "data": "total_survival_family_till_today" }
-            ]
+                { "data": "no_of_poor_family" }
+             ]
     
     } );
 
