@@ -33,6 +33,7 @@ include_once('includes/header.php');
                                 <th>Phone</th>
                                 <th>Email</th>
                                 <th>Type</th>
+                                <th>User Role</th>
                                 <th>Address</th>
                                 <th>Active</th>
                             </tr>
@@ -54,6 +55,14 @@ include_once('includes/header.php');
                                             $user_type="Govt Organization";
                                         }
 
+                                     if ($row['role'] ==1 ){
+                                            $user_role="Admin";
+                                        }
+                                        
+                                        else {
+                                            $user_role="Normal";
+                                        }
+
                                     ?>
                                     <tr>
                                         <td><?php echo $row['name']; ?></td>
@@ -61,7 +70,9 @@ include_once('includes/header.php');
                                         <td><?php echo $row['phone']; ?></td>
                                         <td><?php echo $row['email']; ?></td>
                                         <td><?php echo $user_type; ?></td>
+                                        <td><?php echo $user_role; ?></td>
                                         <td><?php echo $row['address']; ?></td>
+
                                         <td>
                                             <?php
                                                 if ($row['is_active'] == 1){
