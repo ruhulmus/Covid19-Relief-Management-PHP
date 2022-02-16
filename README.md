@@ -8,5 +8,11 @@ Due to COVID-19, economically disadvantaged people always get deprived of any ty
 
 ## Screenshots :
 
-**Login Page** 
+**Login Page :** 
 ![view](https://github.com/ruhulmus/Covid19-Relief-Management-PHP/blob/master/screenshots/Login-page.png)
+
+**Dashboard :** 
+![view](https://github.com/ruhulmus/Covid19-Relief-Management-PHP/blob/master/screenshots/dashboard.png)
+
+**Food & Distribution Chart :** 
+![view](https://github.com/ruhulmus/Covid19-Relief-Management-PHP/blob/master/screenshots/graph1.png)
