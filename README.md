@@ -3,7 +3,7 @@
 # Relief Manager - PHP based Web Application. 
 Due to COVID-19, economically disadvantaged people always get deprived of any types of help coming from the Govt./welfare foundations in lack of proper management. To manage the process efficiently, This solution to ease up the relief allocation program.
 
-**Please Check the below link to know about the full project detials.**
+**Please Check the below link to know about the full project details.**
 
 [Project Video Link](https://www.youtube.com/watch?v=0p9mEZrkl5E)
 
@@ -28,7 +28,7 @@ Due to COVID-19, economically disadvantaged people always get deprived of any ty
 * User and Role Management
 
 
-## Few Screenshots :
+## Screenshots :
 
 **Login Page :** 
 ![view](https://github.com/ruhulmus/Covid19-Relief-Management-PHP/blob/master/screenshots/Login-page.png)
