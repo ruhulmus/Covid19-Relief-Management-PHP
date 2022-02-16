@@ -22,3 +22,6 @@ Due to COVID-19, economically disadvantaged people always get deprived of any ty
 
 **Map View (Area Wise Distrubution Status) :** 
 ![view](https://github.com/ruhulmus/Covid19-Relief-Management-PHP/blob/master/screenshots/map-view.png)
+
+**Map View (Location Wise Alert and Warning Detials) :** 
+![view](https://github.com/ruhulmus/Covid19-Relief-Management-PHP/blob/master/screenshots/map-view-full.png)
