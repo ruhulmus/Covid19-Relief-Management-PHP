@@ -16,3 +16,6 @@ Due to COVID-19, economically disadvantaged people always get deprived of any ty
 
 **Food & Distribution Chart :** 
 ![view](https://github.com/ruhulmus/Covid19-Relief-Management-PHP/blob/master/screenshots/graph1.png)
+
+**Area Wise Poor PEople Overview Chart :** 
+![view](https://github.com/ruhulmus/Covid19-Relief-Management-PHP/blob/master/screenshots/graph2.png)
